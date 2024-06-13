@@ -51,4 +51,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
             docker stop sunjoo || true
             docker rm sunjoo || true
-            docker run -d -p 8082:8082 --name sunjoo ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
+            docker run -d -p 8090:8090 --name sunjoo-server-auth ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
