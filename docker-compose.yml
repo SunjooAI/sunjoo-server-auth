@@ -2,7 +2,7 @@ version: '3.8'
 services:
   auth:
     image: sunyerim/sunjoo:auth
-    container_name: auth
+    container_name: sunjoo-server-auth
     restart: always
     #    depends_on:
     #      - redis
