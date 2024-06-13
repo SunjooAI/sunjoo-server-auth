@@ -7,5 +7,5 @@ services:
     #    depends_on:
     #      - redis
     ports:
-      - "8084:8082"
+      - "8090:8090"
 
