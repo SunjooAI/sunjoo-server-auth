@@ -49,6 +49,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
-            docker stop sunjoo || true
-            docker rm sunjoo || true
-            docker run -d -p 8090:8090 --name sunjoo-server-auth ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
+            if [ "$(docker ps -aq -f name=sunjoo-server-auth)" ]; then
+              docker stop sunjoo-server-auth
+              docker rm sunjoo-server-auth
+            fi
+            docker run -d -p 8080:8090 --name sunjoo-server-auth ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
