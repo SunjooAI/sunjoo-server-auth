@@ -1,0 +1,32 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /auth
+
+spring:
+  application:
+    name: auth
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://sunjoo-user.clau8wyu484y.ap-northeast-2.rds.amazonaws.com:3306/sunjoo?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: ${datasource.username}
+    password: ${datasource.password}
+
+logging:
+  level:
+    org:
+      springframework: info
+      springframework.web: debug
+      zerok: debug
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+  client:
+    registry-fetch-interval-seconds: 30
+    disable-delta: true
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
