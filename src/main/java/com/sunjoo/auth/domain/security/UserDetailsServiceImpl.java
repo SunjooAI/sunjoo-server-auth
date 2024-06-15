@@ -1,5 +1,7 @@
 package com.sunjoo.auth.domain.security;
 
+import com.sunjoo.auth.domain.User;
+import com.sunjoo.auth.domain.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,9 +14,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+    private final UserRepository userRepository;
+
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("loadUserByUsername : " + username);
-        return null;
+    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+        User user = userRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException(id));
+        return new UserDetailsImpl(user);
     }
 }
