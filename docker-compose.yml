@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  auth:
+    image: sunyerim/sunjoo:auth
+    container_name: sunjoo-server-auth
+    restart: always
+    #    depends_on:
+    #      - redis
+    ports:
+      - "8080:8090"
