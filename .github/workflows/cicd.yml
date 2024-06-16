@@ -62,4 +62,4 @@ jobs:
             fi
             
             docker run -d -p 8080:8090 --name sunjoo-server-auth ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
-            docker run -d -p 6379:6379 --name sunjoo-server-redis ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
+            docker run -d -p 6380:6379 --name sunjoo-server-redis ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
