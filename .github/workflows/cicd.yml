@@ -49,8 +49,17 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
+            docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
+            
             if [ "$(docker ps -aq -f name=sunjoo-server-auth)" ]; then
               docker stop sunjoo-server-auth
               docker rm sunjoo-server-auth
             fi
+            
+            if [ "$(docker ps -aq -f name=sunjoo-server-redis)" ]; then
+              docker stop sunjoo-server-redis
+              docker rm sunjoo-server-redis
+            fi
+            
             docker run -d -p 8080:8090 --name sunjoo-server-auth ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
+            docker run -d -p 6379:6379 --name sunjoo-server-redis ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis

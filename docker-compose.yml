@@ -4,8 +4,8 @@ services:
     image: sunyerim/sunjoo:auth
     container_name: sunjoo-server-auth
     restart: always
-    #    depends_on:
-    #      - redis
+    depends_on:
+      - redis
     ports:
       - "8080:8090"
   redis:
