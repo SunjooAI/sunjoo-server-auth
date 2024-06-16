@@ -14,4 +14,4 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ${REDIS_DATA_PATH}:/data
+      - backup-redis:/data
