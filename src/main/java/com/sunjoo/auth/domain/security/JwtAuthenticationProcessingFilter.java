@@ -50,24 +50,27 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     }
 
     private void checkRefreshTokenAndReIssueAccessToken(HttpServletResponse response, String refreshToken) {
-       String id = jwtService.extractId(refreshToken).orElse(null);
+       Long no = jwtService.extractUserNo(refreshToken).orElse(null);
 
-       if(id != null) {
-           String storedRefreshToken = redisService.getValue(id);
-           if(storedRefreshToken.equals(refreshToken)) {
-               userRepository.findById(id).ifPresent(
-                       user-> {
-                           String newAccessToken = jwtService.createAccessToken(id);
-                           jwtService.sendAccessToken(response, newAccessToken);
-                       }
-               );
+       if(no != null) {
+           User foundUser = userRepository.findByUserNo(no).orElse(null);
+           if(foundUser != null) {
+               String storedRefreshToken = redisService.getValue(foundUser.getId());
+               if(storedRefreshToken.equals(refreshToken)) {
+                   userRepository.findByUserNo(no).ifPresent(
+                           user-> {
+                               String newAccessToken = jwtService.createAccessToken(user.getUserNo());
+                               jwtService.sendAccessToken(response, newAccessToken);
+                           }
+                   );
+               }
            }
        }
     }
 
     private void checkAcceessTokenAndAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         jwtService.extractAccessToken(request).filter(jwtService::isTokenValid).ifPresent(
-                accessToken -> jwtService.extractId(accessToken).ifPresent(
+                accessToken -> jwtService.extractUserNo(accessToken).ifPresent(
                         id -> userRepository.findById(id).ifPresent(
                                 user -> saveAuthentication(user)
                         )

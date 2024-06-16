@@ -45,18 +45,19 @@ public class JwtServiceImpl implements JwtService{
 
     private static final String ACCESS_TOKEN_SUBJECT = "AccessToken";
     private static final String REFRESH_TOKEN_SUBJECT = "RefreshToken";
-    private static final String USERNAME_CLAIM = "id";
+    private static final String USERID_CLAIM = "id";
+    private static final String USERNO_CLAIM = "userNo";
     private static final String BEARER = "Bearer ";
 
     private final UserRepository userRepository;
     private final ObjectMapper objectMapper;
 
     @Override
-    public String createAccessToken(String id) {
+    public String createAccessToken(long userNo) {
       return JWT.create()
               .withSubject(ACCESS_TOKEN_SUBJECT)
               .withExpiresAt(new Date(System.currentTimeMillis() + accessTokenValidityInSeconds))
-              .withClaim(USERNAME_CLAIM, id)
+              .withClaim(USERNO_CLAIM, userNo)
               .sign(Algorithm.HMAC512(secret));
     }
 
@@ -115,11 +116,23 @@ public class JwtServiceImpl implements JwtService{
     }
 
     @Override
-    public Optional<String> extractId(String accessToken) {
+    public Optional<String> extractId(String refreshToken) {
         try {
             return Optional.ofNullable(
-                    JWT.require(Algorithm.HMAC512(secret)).build().verify(accessToken).getClaim(USERNAME_CLAIM)
+                    JWT.require(Algorithm.HMAC512(secret)).build().verify(refreshToken).getClaim(USERID_CLAIM)
                             .asString());
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public Optional<Long> extractUserNo(String token) {
+        try {
+            return Optional.ofNullable(
+                    JWT.require(Algorithm.HMAC512(secret)).build().verify(token).getClaim(USERNO_CLAIM)
+                            .asLong());
         } catch (Exception e) {
             log.error(e.getMessage());
             return Optional.empty();
