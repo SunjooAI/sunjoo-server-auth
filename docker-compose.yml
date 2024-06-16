@@ -12,6 +12,6 @@ services:
     image: sunyerim/sunjoo:redis
     restart: always
     ports:
-      - "8080:6379"
+      - "6379:6379"
     volumes:
       - ${REDIS_DATA_PATH}:/data

@@ -61,5 +61,10 @@ jobs:
               docker rm sunjoo-server-redis
             fi
             
+            if [ "$(docker ps -q -f publish=6379)" ]; then
+            docker stop $(docker ps -q -f publish=6379)
+            docker rm $(docker ps -q -f publish=6379)
+            fi
+            
             docker run -d -p 8080:8090 --name sunjoo-server-auth ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
-            docker run -d -p 6380:6379 --name sunjoo-server-redis ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
+            docker run -d -p 6379:6379 --name sunjoo-server-redis ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
