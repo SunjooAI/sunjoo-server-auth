@@ -37,8 +37,8 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth .
-          docker push ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/auth .
+          docker push ${{ secrets.DOCKER_USERNAME }}/auth
 
       - name: SSH and Deploy
         uses: appleboy/ssh-action@v0.1.5
@@ -48,23 +48,18 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
-            docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
+            docker pull ${{ secrets.DOCKER_USERNAME }}/auth:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/redis:latest
             
             if [ "$(docker ps -aq -f name=sunjoo-server-auth)" ]; then
               docker stop sunjoo-server-auth
               docker rm sunjoo-server-auth
             fi
             
-            if [ "$(docker ps -aq -f name=sunjoo-server-redis)" ]; then
-              docker stop sunjoo-server-redis
-              docker rm sunjoo-server-redis
-            fi
             
             if [ "$(docker ps -q -f publish=6379)" ]; then
             docker stop $(docker ps -q -f publish=6379)
             docker rm $(docker ps -q -f publish=6379)
             fi
             
-            docker run -d -p 8080:8090 --name sunjoo-server-auth ${{ secrets.DOCKER_USERNAME }}/sunjoo:auth
-            docker run -d -p 6379:6379 --name sunjoo-server-redis ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
+            docker run -d -p 8080:8090 --name sunjoo-server-auth ${{ secrets.DOCKER_USERNAME }}/auth:latest
