@@ -55,7 +55,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /home/ubuntu/sunjoo-server-auth
-            git pull origin develop
             docker-compose down
             docker pull ${{ secrets.DOCKER_USERNAME }}/auth:latest
             docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
