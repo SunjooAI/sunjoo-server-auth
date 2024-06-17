@@ -40,6 +40,12 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/auth .
           docker push ${{ secrets.DOCKER_USERNAME }}/auth
 
+      - name: Build and push Redis Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis .
+          docker push %{{ secrets.DOCKER_USERNAME }}/sunjoo:redis
+      
+
       - name: SSH and Deploy
         uses: appleboy/ssh-action@v0.1.5
         with:
