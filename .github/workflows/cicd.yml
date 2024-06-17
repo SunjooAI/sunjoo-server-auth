@@ -2,7 +2,8 @@ name: Auth CI/CD
 
 on:
   push:
-    branches: [ develop ]
+    branches:
+      - develop
 
 permissions:
   contents: read
