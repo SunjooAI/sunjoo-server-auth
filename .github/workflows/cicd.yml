@@ -57,6 +57,7 @@ jobs:
           script: |
             cd /home/ubuntu/sunjoo-server-auth
             docker-compose down
+            git pull origin develop
             docker pull ${{ secrets.DOCKER_USERNAME }}/auth:latest
             docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
             docker-compose up -d --build
