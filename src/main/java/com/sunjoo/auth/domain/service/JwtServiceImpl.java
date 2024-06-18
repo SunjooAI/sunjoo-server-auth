@@ -56,7 +56,7 @@ public class JwtServiceImpl implements JwtService{
     public String createAccessToken(long userNo) {
       return JWT.create()
               .withSubject(ACCESS_TOKEN_SUBJECT)
-              .withExpiresAt(new Date(System.currentTimeMillis() + accessTokenValidityInSeconds))
+              .withExpiresAt(new Date(System.currentTimeMillis() + accessTokenValidityInSeconds * 1000))
               .withClaim(USERNO_CLAIM, userNo)
               .sign(Algorithm.HMAC512(secret));
     }
@@ -65,7 +65,7 @@ public class JwtServiceImpl implements JwtService{
     public String createRefreshToken() {
         return JWT.create()
                 .withSubject(REFRESH_TOKEN_SUBJECT)
-                .withExpiresAt(new Date(System.currentTimeMillis() + refreshTokenValidityInSeconds))
+                .withExpiresAt(new Date(System.currentTimeMillis() + refreshTokenValidityInSeconds * 1000))
                 .sign(Algorithm.HMAC512(secret));
     }
 
