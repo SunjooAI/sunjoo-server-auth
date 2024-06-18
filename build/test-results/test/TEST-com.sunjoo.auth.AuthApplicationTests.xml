@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.sunjoo.auth.AuthApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-16T08:22:38" hostname="MacBook-Pro-2.local" time="0.316">
+<testsuite name="com.sunjoo.auth.AuthApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-18T01:39:18" hostname="MacBook-Pro-2.local" time="0.299">
   <properties/>
-  <testcase name="contextLoads()" classname="com.sunjoo.auth.AuthApplicationTests" time="0.316"/>
-  <system-out><![CDATA[17:22:35.021 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.sunjoo.auth.AuthApplicationTests]: AuthApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:22:35.078 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.sunjoo.auth.AuthApplication for test class com.sunjoo.auth.AuthApplicationTests
+  <testcase name="contextLoads()" classname="com.sunjoo.auth.AuthApplicationTests" time="0.299"/>
+  <system-out><![CDATA[10:39:15.265 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.sunjoo.auth.AuthApplicationTests]: AuthApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:39:15.309 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.sunjoo.auth.AuthApplication for test class com.sunjoo.auth.AuthApplicationTests
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -13,30 +13,30 @@
 
  :: Spring Boot ::                (v3.3.0)
 
-2024-06-16T17:22:35.316+09:00  INFO 16301 --- [auth] [    Test worker] com.sunjoo.auth.AuthApplicationTests     : Starting AuthApplicationTests using Java 17.0.9 with PID 16301 (started by Samsung in /Users/Samsung/Desktop/2024/sunjooProject/sunjoo-server-auth)
-2024-06-16T17:22:35.317+09:00  INFO 16301 --- [auth] [    Test worker] com.sunjoo.auth.AuthApplicationTests     : The following 1 profile is active: "jwt"
-2024-06-16T17:22:35.333+09:00 DEBUG 16301 --- [auth] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@49798e84
-2024-06-16T17:22:35.713+09:00  INFO 16301 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-06-16T17:22:35.714+09:00  INFO 16301 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-16T17:22:35.795+09:00  INFO 16301 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 1 JPA repository interface.
-2024-06-16T17:22:35.803+09:00  INFO 16301 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-06-16T17:22:35.804+09:00  INFO 16301 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2024-06-16T17:22:35.811+09:00  INFO 16301 --- [auth] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sunjoo.auth.domain.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2024-06-16T17:22:35.811+09:00  INFO 16301 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
-2024-06-16T17:22:35.989+09:00  INFO 16301 --- [auth] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=bd91b7a7-b607-30ab-85dd-d99fae0e2bc1
-2024-06-16T17:22:36.085+09:00  WARN 16301 --- [auth] [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2024-06-16T17:22:36.086+09:00  WARN 16301 --- [auth] [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-06-16T17:22:36.160+09:00  INFO 16301 --- [auth] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-06-16T17:22:36.185+09:00  INFO 16301 --- [auth] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-06-16T17:22:36.203+09:00  INFO 16301 --- [auth] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-06-16T17:22:36.365+09:00  INFO 16301 --- [auth] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-06-16T17:22:36.381+09:00  INFO 16301 --- [auth] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-06-16T17:22:36.493+09:00  INFO 16301 --- [auth] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:sunjooAuth user=${DATASOURCE.USERNAME}
-2024-06-16T17:22:36.494+09:00  INFO 16301 --- [auth] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-06-16T17:22:37.008+09:00  INFO 16301 --- [auth] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-18T10:39:15.500+09:00  INFO 4167 --- [auth] [    Test worker] com.sunjoo.auth.AuthApplicationTests     : Starting AuthApplicationTests using Java 17.0.9 with PID 4167 (started by Samsung in /Users/Samsung/Desktop/2024/sunjooProject/sunjoo-server-auth)
+2024-06-18T10:39:15.500+09:00  INFO 4167 --- [auth] [    Test worker] com.sunjoo.auth.AuthApplicationTests     : The following 1 profile is active: "jwt"
+2024-06-18T10:39:15.511+09:00 DEBUG 4167 --- [auth] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@49798e84
+2024-06-18T10:39:15.801+09:00  INFO 4167 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-18T10:39:15.802+09:00  INFO 4167 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-18T10:39:16.068+09:00  INFO 4167 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 264 ms. Found 1 JPA repository interface.
+2024-06-18T10:39:16.076+09:00  INFO 4167 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-18T10:39:16.076+09:00  INFO 4167 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-06-18T10:39:16.083+09:00  INFO 4167 --- [auth] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.sunjoo.auth.domain.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-06-18T10:39:16.083+09:00  INFO 4167 --- [auth] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2024-06-18T10:39:16.260+09:00  INFO 4167 --- [auth] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=bd91b7a7-b607-30ab-85dd-d99fae0e2bc1
+2024-06-18T10:39:16.326+09:00  WARN 4167 --- [auth] [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-06-18T10:39:16.328+09:00  WARN 4167 --- [auth] [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-06-18T10:39:16.388+09:00  INFO 4167 --- [auth] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-18T10:39:16.407+09:00  INFO 4167 --- [auth] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-18T10:39:16.420+09:00  INFO 4167 --- [auth] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-18T10:39:16.530+09:00  INFO 4167 --- [auth] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-18T10:39:16.540+09:00  INFO 4167 --- [auth] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-18T10:39:16.616+09:00  INFO 4167 --- [auth] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:sunjooAuth user=ROOT
+2024-06-18T10:39:16.617+09:00  INFO 4167 --- [auth] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-18T10:39:16.958+09:00  INFO 4167 --- [auth] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists user cascade 
-2024-06-16T17:22:37.020+09:00  WARN 16301 --- [auth] [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-06-18T10:39:16.979+09:00  WARN 4167 --- [auth] [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     drop table if exists user cascade " via JDBC [Syntax error in SQL statement "\000a    drop table if exists [*]user cascade "; expected "identifier";]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
@@ -208,7 +208,7 @@ Hibernate:
         type varchar(255),
         primary key (user_no)
     )
-2024-06-16T17:22:37.030+09:00  WARN 16301 --- [auth] [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-06-18T10:39:17.043+09:00  WARN 4167 --- [auth] [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table user (
         created_at date,
         user_no bigint generated by default as identity,
@@ -397,30 +397,30 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 131 common frames omitted
 
-2024-06-16T17:22:37.039+09:00  INFO 16301 --- [auth] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-06-16T17:22:37.416+09:00  WARN 16301 --- [auth] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-06-16T17:22:37.430+09:00  INFO 16301 --- [auth] [    Test worker] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
-2024-06-16T17:22:37.431+09:00  WARN 16301 --- [auth] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
-2024-06-16T17:22:37.498+09:00 DEBUG 16301 --- [auth] [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 3 mappings in 'requestMappingHandlerMapping'
-2024-06-16T17:22:37.535+09:00 DEBUG 16301 --- [auth] [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-06-16T17:22:37.561+09:00  INFO 16301 --- [auth] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@9d455a6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@124e538e, org.springframework.security.web.context.SecurityContextHolderFilter@6cd31e5f, org.springframework.security.web.header.HeaderWriterFilter@354a1239, org.springframework.web.filter.CorsFilter@dcc7d1c, com.sunjoo.auth.domain.security.JwtAuthenticationProcessingFilter@343b3399, org.springframework.security.web.authentication.logout.LogoutFilter@5ab2c5d8, com.sunjoo.auth.domain.security.JsonIdPasswordAuthenticationFilter@2c4142f8, com.sunjoo.auth.domain.security.JsonIdPasswordAuthenticationFilter@2c4142f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e02988, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36d8ddc5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ac9742e, org.springframework.security.web.session.SessionManagementFilter@2a12389e, org.springframework.security.web.access.ExceptionTranslationFilter@78854721, org.springframework.security.web.access.intercept.AuthorizationFilter@1631a614]
-2024-06-16T17:22:37.657+09:00 DEBUG 16301 --- [auth] [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-06-16T17:22:37.675+09:00 DEBUG 16301 --- [auth] [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-06-16T17:22:37.804+09:00  INFO 16301 --- [auth] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2024-06-16T17:22:37.823+09:00  WARN 16301 --- [auth] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2024-06-16T17:22:37.838+09:00  INFO 16301 --- [auth] [    Test worker] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2024-06-16T17:22:37.886+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2024-06-16T17:22:37.888+09:00  INFO 16301 --- [auth] [    Test worker] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-06-16T17:22:37.898+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Disable delta property : true
-2024-06-16T17:22:37.898+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2024-06-16T17:22:37.898+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2024-06-16T17:22:37.898+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2024-06-16T17:22:37.898+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2024-06-16T17:22:37.898+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2024-06-16T17:22:37.898+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2024-06-16T17:22:38.000+09:00 DEBUG 16301 --- [auth] [    Test worker] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/
-2024-06-16T17:22:38.057+09:00 DEBUG 16301 --- [auth] [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-06-16T17:22:38.079+09:00  INFO 16301 --- [auth] [    Test worker] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
+2024-06-18T10:39:17.136+09:00  INFO 4167 --- [auth] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-18T10:39:17.528+09:00  WARN 4167 --- [auth] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-18T10:39:17.543+09:00  INFO 4167 --- [auth] [    Test worker] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2024-06-18T10:39:17.544+09:00  WARN 4167 --- [auth] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-06-18T10:39:17.610+09:00 DEBUG 4167 --- [auth] [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 3 mappings in 'requestMappingHandlerMapping'
+2024-06-18T10:39:17.645+09:00 DEBUG 4167 --- [auth] [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-06-18T10:39:17.668+09:00  INFO 4167 --- [auth] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@38bce2ed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c91b751, org.springframework.security.web.context.SecurityContextHolderFilter@ab5d5c8, org.springframework.security.web.header.HeaderWriterFilter@99ace98, org.springframework.web.filter.CorsFilter@38fc2c39, com.sunjoo.auth.domain.security.JwtAuthenticationProcessingFilter@1dcfbad1, org.springframework.security.web.authentication.logout.LogoutFilter@119cd026, com.sunjoo.auth.domain.security.JsonIdPasswordAuthenticationFilter@3cdafb82, com.sunjoo.auth.domain.security.JsonIdPasswordAuthenticationFilter@3cdafb82, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@78854721, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@354a1239, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@41fbe8c0, org.springframework.security.web.session.SessionManagementFilter@21dd405a, org.springframework.security.web.access.ExceptionTranslationFilter@6c418f0b, org.springframework.security.web.access.intercept.AuthorizationFilter@40949bb0]
+2024-06-18T10:39:17.753+09:00 DEBUG 4167 --- [auth] [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-06-18T10:39:17.772+09:00 DEBUG 4167 --- [auth] [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-06-18T10:39:17.882+09:00  INFO 4167 --- [auth] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-06-18T10:39:17.902+09:00  WARN 4167 --- [auth] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-06-18T10:39:17.916+09:00  INFO 4167 --- [auth] [    Test worker] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-06-18T10:39:17.965+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-06-18T10:39:17.967+09:00  INFO 4167 --- [auth] [    Test worker] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-06-18T10:39:17.978+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Disable delta property : true
+2024-06-18T10:39:17.978+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-06-18T10:39:17.978+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-06-18T10:39:17.978+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-06-18T10:39:17.978+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-06-18T10:39:17.978+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-06-18T10:39:17.978+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-06-18T10:39:18.083+09:00 DEBUG 4167 --- [auth] [    Test worker] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/
+2024-06-18T10:39:18.131+09:00 DEBUG 4167 --- [auth] [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-06-18T10:39:18.157+09:00  INFO 4167 --- [auth] [    Test worker] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790)
@@ -623,8 +623,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
 	... 159 more
 
-2024-06-16T17:22:38.080+09:00  WARN 16301 --- [auth] [    Test worker] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
-2024-06-16T17:22:38.081+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH/192.0.0.2:auth:8090 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+2024-06-18T10:39:18.161+09:00  WARN 4167 --- [auth] [    Test worker] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for "http://localhost:8761/eureka/apps/": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
+2024-06-18T10:39:18.162+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH/192.168.35.168:auth:8090 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
@@ -776,20 +776,20 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 
-2024-06-16T17:22:38.082+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from primary servers failed
-2024-06-16T17:22:38.082+09:00  WARN 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Using default backup registry implementation which does not do anything.
-2024-06-16T17:22:38.082+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from backup servers failed
-2024-06-16T17:22:38.083+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2024-06-16T17:22:38.084+09:00  INFO 16301 --- [auth] [    Test worker] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2024-06-16T17:22:38.087+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1718526158086 with initial instances count: 0
-2024-06-16T17:22:38.089+09:00  INFO 16301 --- [auth] [    Test worker] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application AUTH with eureka with status UP
-2024-06-16T17:22:38.089+09:00  INFO 16301 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1718526158089, current=UP, previous=STARTING]
-2024-06-16T17:22:38.090+09:00  INFO 16301 --- [auth] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH/192.0.0.2:auth:8090: registering service...
-2024-06-16T17:22:38.092+09:00 DEBUG 16301 --- [auth] [nfoReplicator-0] o.s.web.client.RestTemplate              : HTTP POST http://localhost:8761/eureka/apps/AUTH
-2024-06-16T17:22:38.093+09:00 DEBUG 16301 --- [auth] [nfoReplicator-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-06-16T17:22:38.103+09:00 DEBUG 16301 --- [auth] [nfoReplicator-0] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = 192.0.0.2:auth:8090, appName = AUTH, hostName = 192.0.0.2, status = UP, ipAddr = 192.0.0.2, port = 8090, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@5d52a17b] as "application/json"
-2024-06-16T17:22:38.104+09:00  INFO 16301 --- [auth] [    Test worker] com.sunjoo.auth.AuthApplicationTests     : Started AuthApplicationTests in 2.955 seconds (process running for 3.564)
-2024-06-16T17:22:38.114+09:00  INFO 16301 --- [auth] [nfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
+2024-06-18T10:39:18.163+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from primary servers failed
+2024-06-18T10:39:18.164+09:00  WARN 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Using default backup registry implementation which does not do anything.
+2024-06-18T10:39:18.164+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from backup servers failed
+2024-06-18T10:39:18.165+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-06-18T10:39:18.166+09:00  INFO 4167 --- [auth] [    Test worker] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-06-18T10:39:18.168+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1718674758168 with initial instances count: 0
+2024-06-18T10:39:18.170+09:00  INFO 4167 --- [auth] [    Test worker] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application AUTH with eureka with status UP
+2024-06-18T10:39:18.171+09:00  INFO 4167 --- [auth] [    Test worker] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1718674758171, current=UP, previous=STARTING]
+2024-06-18T10:39:18.172+09:00  INFO 4167 --- [auth] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH/192.168.35.168:auth:8090: registering service...
+2024-06-18T10:39:18.174+09:00 DEBUG 4167 --- [auth] [nfoReplicator-0] o.s.web.client.RestTemplate              : HTTP POST http://localhost:8761/eureka/apps/AUTH
+2024-06-18T10:39:18.175+09:00 DEBUG 4167 --- [auth] [nfoReplicator-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-06-18T10:39:18.178+09:00  INFO 4167 --- [auth] [    Test worker] com.sunjoo.auth.AuthApplicationTests     : Started AuthApplicationTests in 2.817 seconds (process running for 3.283)
+2024-06-18T10:39:18.183+09:00 DEBUG 4167 --- [auth] [nfoReplicator-0] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = 192.168.35.168:auth:8090, appName = AUTH, hostName = 192.168.35.168, status = UP, ipAddr = 192.168.35.168, port = 8090, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@3d2a164e] as "application/json"
+2024-06-18T10:39:18.195+09:00  INFO 4167 --- [auth] [nfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790)
@@ -855,8 +855,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
 	... 22 more
 
-2024-06-16T17:22:38.114+09:00  WARN 16301 --- [auth] [nfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
-2024-06-16T17:22:38.114+09:00  WARN 16301 --- [auth] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH/192.0.0.2:auth:8090 - registration failed Cannot execute request on any known server
+2024-06-18T10:39:18.196+09:00  WARN 4167 --- [auth] [nfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/AUTH": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
+2024-06-18T10:39:18.196+09:00  WARN 4167 --- [auth] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH/192.168.35.168:auth:8090 - registration failed Cannot execute request on any known server
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.2.jar:2.0.2]
@@ -874,7 +874,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
 
-2024-06-16T17:22:38.115+09:00  WARN 16301 --- [auth] [nfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+2024-06-18T10:39:18.196+09:00  WARN 4167 --- [auth] [nfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.2.jar:2.0.2]
