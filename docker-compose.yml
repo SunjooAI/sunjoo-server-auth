@@ -5,6 +5,8 @@ services:
     restart: always
     ports:
       - 6379:6379
+    networks:
+      - eureka-network
   spring:
     image: auth
     build:
@@ -15,5 +17,9 @@ services:
       - 8090:8090
     depends_on:
       - redis
+    networks:
+      - eureka-network
 
-
+networks:
+  eureka-network:
+    driver: bridge
