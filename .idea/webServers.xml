@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="9d213b0c-b0bf-4b32-8cec-6542f577d696" name="sunjoo-ec2-server">
-        <fileTransfer accessType="SFTP" host="43.201.221.36" port="22" sshConfigId="e92945ab-d10b-45bd-b76c-2b1e2f8bce35" sshConfig="ubuntu@43.201.221.36:22 key" keyPair="true">
+        <fileTransfer accessType="SFTP" sshConfigId="e92945ab-d10b-45bd-b76c-2b1e2f8bce35" sshConfig="ubuntu@43.201.221.36:22 key">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
