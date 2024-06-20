@@ -43,11 +43,12 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
+                .cors(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .formLogin(AbstractHttpConfigurer::disable)
                 .addFilterAfter(jsonIdPasswordAuthenticationFilter(), LogoutFilter.class)
                 .authorizeHttpRequests((authorize)->authorize
-                        .requestMatchers("/register", "/", "/login").permitAll()
+                        .requestMatchers("/register", "/", "/login/**").permitAll()
 //                        .requestMatchers("/**").access((authentication, context) -> new AuthorizationDecision(hasIpAddress.matches(context.getRequest())))
                         .anyRequest().authenticated())
 //                .authorizeHttpRequests((authorize) -> authorize

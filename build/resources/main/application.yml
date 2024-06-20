@@ -35,4 +35,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://sunjoo-server-eureka-eureka-1:8761/eureka/
+      defaultZone: http://localhost:8761/
