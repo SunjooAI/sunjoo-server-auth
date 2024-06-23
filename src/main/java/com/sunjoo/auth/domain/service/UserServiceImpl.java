@@ -5,26 +5,19 @@ import com.nimbusds.jose.shaded.gson.JsonObject;
 import com.nimbusds.jose.shaded.gson.JsonParser;
 import com.sunjoo.auth.domain.User;
 import com.sunjoo.auth.domain.UserRepository;
-import com.sunjoo.auth.domain.dto.KakaoLoginRequestDto;
-import com.sunjoo.auth.domain.dto.KakaoLoginResponseDto;
-import com.sunjoo.auth.domain.dto.UserRegisterRequestDto;
-import com.sunjoo.auth.domain.dto.UserRegisterResponseDto;
+import com.sunjoo.auth.domain.dto.*;
 import com.sunjoo.auth.global.exception.AppException;
 import com.sunjoo.auth.global.exception.ErrorCode;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -107,6 +100,39 @@ public class UserServiceImpl implements UserService{
                 );
 
         return kakaoResponse;
+    }
+
+    @Override
+    public UserInfoResponseDto getUserInfo(long userNo) {
+        UserInfoResponseDto userInfoResponseDto = new UserInfoResponseDto();
+        userRepository.findByUserNo(userNo).ifPresentOrElse(
+            user->{
+                if(user.getType().equals("DEFAULT")) userInfoResponseDto.setId(user.getId());
+                userInfoResponseDto.setUserNo(user.getUserNo());
+                userInfoResponseDto.setName(user.getName());
+                userInfoResponseDto.setType(user.getType());
+            }, () -> {throw new AppException(ErrorCode.USER_NOT_FOUND);}
+        );
+        return userInfoResponseDto;
+    }
+
+    @Transactional
+    @Override
+    public NickNameResponseDto updateNickName(long userNo, String nickName) {
+        NickNameResponseDto nickNameResponseDto = new NickNameResponseDto();
+        User user = userRepository.findByUserNo(userNo).orElseThrow(() -> {
+            throw new AppException(ErrorCode.USER_NOT_FOUND);
+        });
+
+        user.setName(nickName);
+        nickNameResponseDto.setNickname(user.getName());
+        nickNameResponseDto.setUserNo(user.getUserNo());
+        nickNameResponseDto.setType(user.getType());
+
+        if(user.getType().equals("DEFAULT")) {
+            nickNameResponseDto.setId(user.getId());
+        }
+        return nickNameResponseDto;
     }
 
     private void userJoinValid(String id) {

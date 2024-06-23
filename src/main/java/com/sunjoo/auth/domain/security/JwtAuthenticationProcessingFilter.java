@@ -71,7 +71,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     private void checkAcceessTokenAndAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         jwtService.extractAccessToken(request).filter(jwtService::isTokenValid).ifPresent(
                 accessToken -> jwtService.extractUserNo(accessToken).ifPresent(
-                        id -> userRepository.findById(id).ifPresent(
+                        userNo -> userRepository.findByUserNo(userNo).ifPresent(
                                 user -> saveAuthentication(user)
                         )
                 )
