@@ -37,8 +37,6 @@ public class SecurityConfig {
     private final RedisService redisService;
     private final UserRepository userRepository;
 
-    //private final IpAddressMatcher hasIpAddress = new IpAddressMatcher("192.168.0.5"); // 도커 네트워크 생성 시 설정한 서브넷 입력
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -48,11 +46,8 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .addFilterAfter(jsonIdPasswordAuthenticationFilter(), LogoutFilter.class)
                 .authorizeHttpRequests((authorize)->authorize
-                        .requestMatchers("/register", "/", "/login/**").permitAll()
-//                        .requestMatchers("/**").access((authentication, context) -> new AuthorizationDecision(hasIpAddress.matches(context.getRequest())))
+                        .requestMatchers("/register", "/", "/login/**", "/new-password").permitAll()
                         .anyRequest().authenticated())
-//                .authorizeHttpRequests((authorize) -> authorize
-//                        .anyRequest().permitAll())
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/login")
                         .invalidateHttpSession(true))

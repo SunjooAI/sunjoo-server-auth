@@ -5,20 +5,18 @@ import com.sunjoo.auth.domain.security.UserDetailsImpl;
 import com.sunjoo.auth.domain.service.JwtService;
 import com.sunjoo.auth.domain.service.RedisService;
 import com.sunjoo.auth.domain.service.UserService;
+import com.sunjoo.auth.domain.service.SendMailService;
 import com.sunjoo.auth.global.Response;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.sql.SQLException;
-import java.util.HashMap;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -27,6 +25,7 @@ public class UserController {
     private final UserService userService;
     private final JwtService jwtService;
     private final RedisService redisService;
+    private final SendMailService sendMailService;
 
     @PostMapping("/register")
     public ResponseEntity register(@Validated @RequestBody UserRegisterRequestDto registerRequest, BindingResult br) throws SQLException {
@@ -69,5 +68,17 @@ public class UserController {
     public ResponseEntity updateUserNickname(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestBody NickNameRequestDto requestDto) {
         NickNameResponseDto nickNameResponseDto = userService.updateNickName(userDetails.getUserNo(), requestDto.getNewNickName());
         return ResponseEntity.ok(Response.success(nickNameResponseDto));
+    }
+
+    @PostMapping("/reset-password/send-email")
+    public ResponseEntity resetPwdGetEmail(@RequestBody ResetPwdEmailRequestDto requestDto) {
+        String uuid = sendMailService.sendResetPwdEmail(requestDto.getEmail());
+        return ResponseEntity.ok(Response.success(uuid));
+    }
+
+    @PutMapping("/new-password")
+    public ResponseEntity newPwd(@RequestBody NewPwdRequestDto requestDto) {
+        userService.updateNewPassword(requestDto.getId(), requestDto.getNewPassword());
+        return ResponseEntity.ok("success update password");
     }
 };

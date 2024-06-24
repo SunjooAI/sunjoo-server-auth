@@ -17,6 +17,19 @@ spring:
       port: 6379
   profiles:
     include: jwt
+  mail:
+    host: smtp.naver.com
+    port: 465
+    username: tjsdudqo1234@naver.com
+    password: 
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+          starttls:
+            enable: true
+          auth: true
 
 logging:
   level:
@@ -36,3 +49,4 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://sunjoo-server-eureka-eureka-1:8761/eureka/
+

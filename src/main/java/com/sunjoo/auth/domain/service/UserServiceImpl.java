@@ -135,6 +135,16 @@ public class UserServiceImpl implements UserService{
         return nickNameResponseDto;
     }
 
+    @Transactional
+    @Override
+    public void updateNewPassword(String id, String newPassword) {
+        User user = userRepository.findById(id).orElseThrow(() -> {
+            throw new AppException(ErrorCode.USER_NOT_FOUND);
+        });
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+    }
+
     private void userJoinValid(String id) {
         userRepository.findById(id)
                 .ifPresent(user -> {throw new AppException(ErrorCode.DUPLICATED_USER_ID);});
