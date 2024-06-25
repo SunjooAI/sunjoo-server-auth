@@ -21,7 +21,7 @@ spring:
     host: smtp.naver.com
     port: 465
     username: tjsdudqo1234@naver.com
-    password: qotjsdud0607!
+    password: 
     properties:
       mail:
         smtp:
@@ -48,7 +48,5 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/
-
-# SMTP
+      defaultZone: http://sunjoo-server-eureka-eureka-1:8761/eureka/
 
