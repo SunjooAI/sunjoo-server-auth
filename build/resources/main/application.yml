@@ -13,7 +13,7 @@ spring:
     password: user0606
   data:
     redis:
-      host: localhost
+      host: sunjoo-server-auth-redis-1
       port: 6379
   profiles:
     include: jwt
