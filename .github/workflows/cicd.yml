@@ -28,7 +28,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build --no-daemon
+        run: ./gradlew build
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -38,13 +38,13 @@ jobs:
 
       - name: Build and push Auth Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/auth .
-          docker push ${{ secrets.DOCKER_USERNAME }}/auth
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/auth:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/auth:latest
 
       - name: Build and push Redis Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis .
-          docker push ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/redis:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/redis:latest
       
 
       - name: SSH and Deploy
@@ -57,7 +57,7 @@ jobs:
           script: |
             cd /home/ubuntu/sunjoo-server-auth
             docker-compose down
-            git pull origin develop
             docker pull ${{ secrets.DOCKER_USERNAME }}/auth:latest
-            docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
-            docker-compose up -d --build
+            docker pull ${{ secrets.DOCKER_USERNAME }}/redis:latest
+            docker-compose build
+            docker-compose up -d
