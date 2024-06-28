@@ -61,3 +61,7 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/redis:latest
             docker-compose build
             docker-compose up -d
+            docker network connect eureka-network sunjoo-server-auth-spring-1
+            docker network connect eureka-network sunjoo-server-auth-redis-1
+            docker restart sunjoo-server-auth-spring-1
+            docker restart sunjoo-server-auth-redis-1
