@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://sunjoo-user.clau8wyu484y.ap-northeast-2.rds.amazonaws.com:3306/sunjoo?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
-    password: user0606
+    password: sunjoo-user0628
   data:
     redis:
       host: localhost
@@ -21,7 +21,7 @@ spring:
     host: smtp.naver.com
     port: 465
     username: tjsdudqo1234@naver.com
-    password: 
+    password:
     properties:
       mail:
         smtp:
@@ -48,5 +48,5 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://sunjoo-server-eureka-eureka-1:8761/eureka/
+      defaultZone: http://localhost:8761/
 
