@@ -49,4 +49,3 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://sunjoo-server-eureka-eureka-1:8761/eureka/
-
