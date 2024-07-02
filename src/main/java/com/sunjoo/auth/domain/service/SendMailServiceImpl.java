@@ -19,7 +19,8 @@ public class SendMailServiceImpl implements SendMailService {
 
     @Value("${spring.mail.username}")
     private String fromMail;
-    private String resetPwUrl;
+//    @Value("${props.reset-password-url}")
+//    private String resetPwUrl;
 
 
     @Override
@@ -27,7 +28,8 @@ public class SendMailServiceImpl implements SendMailService {
         String uuid = makeUUID();
         String title = "비밀번호 재설정입니다.";
         String cotent = "SUNJOO" + "<br><br>" + "아래 링크를 클릭하면 비밀번호 재설정 페이지로 이동합니다." + "<br>"
-                + "<a href =\"" + resetPwUrl + "/" + uuid + "/a>"
+                + "<a href =\"http://localhost:3000/InputNewPwd\">"
+                + "http://localhost:3000/InputNewPwd" + "</a>"
                 + "<br><br> 해당 링크는 24시간 동안만 유효합니다.";
         sendMail(email, title, cotent);
         saveUuidAndEmail(uuid, email);
