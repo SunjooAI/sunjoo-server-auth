@@ -46,7 +46,7 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .addFilterAfter(jsonIdPasswordAuthenticationFilter(), LogoutFilter.class)
                 .authorizeHttpRequests((authorize)->authorize
-                        .requestMatchers("/register", "/", "/login/**", "/new-password").permitAll()
+                        .requestMatchers("/register", "/", "/login/**", "/new-password", "/reset-password/send-email").permitAll()
                         .anyRequest().authenticated())
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/login")
