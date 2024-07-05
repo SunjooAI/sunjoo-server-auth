@@ -10,6 +10,7 @@ import com.sunjoo.auth.global.exception.AppException;
 import com.sunjoo.auth.global.exception.ErrorCode;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -41,6 +43,8 @@ public class UserServiceImpl implements UserService{
                         .build());
         return new UserRegisterResponseDto(saved);
     }
+
+
 
     // 카카오 로그인
     @Override
@@ -143,6 +147,37 @@ public class UserServiceImpl implements UserService{
         });
 
         user.setPassword(passwordEncoder.encode(newPassword));
+    }
+
+    @Override
+    public GoogleLoginResponseDto googleLogin(GoogleLoginRequestDto googleRequest) {
+        // 이메일로 가입되어 있는지 확인
+
+        GoogleLoginResponseDto googleResponseDto = new GoogleLoginResponseDto();
+        log.info("가입 이메일 : " + googleRequest.getEmail());
+        userRepository.findByEmail(googleRequest.getEmail()).ifPresentOrElse(
+                user -> {  // 만약에 가입된 이메일이라면 바로 로그인 진행
+                    log.info(user.getEmail());
+                    googleResponseDto.setUserNo(user.getUserNo());
+                    googleResponseDto.setEmail(user.getEmail());
+                    googleResponseDto.setName(user.getName());
+                    googleResponseDto.setType(user.getType());
+                }, () -> {  // 가입되어 있지 않으면 가입 후 로그인 진행
+                    log.info("가입되지 않은 회원");
+                    User newGoogleLogin = userRepository.save(
+                            User.builder()
+                                    .name(googleRequest.getName())
+                                    .email(googleRequest.getEmail())
+                                    .type("GOOGLE")
+                                    .createdAt(LocalDate.now())
+                                    .build());
+                    googleResponseDto.setUserNo(newGoogleLogin.getUserNo());
+                    googleResponseDto.setEmail(newGoogleLogin.getEmail());
+                    googleResponseDto.setName(newGoogleLogin.getName());
+                    googleResponseDto.setType(newGoogleLogin.getType());
+                }
+        );
+        return googleResponseDto;
     }
 
     private void userJoinValid(String id) {
