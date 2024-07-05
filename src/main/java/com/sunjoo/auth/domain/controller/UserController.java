@@ -57,6 +57,24 @@ public class UserController {
         }
     }
 
+    @PostMapping("/login/google")
+    public ResponseEntity googleLogin(@RequestBody GoogleLoginRequestDto requestDto, HttpServletResponse response) {
+        try {
+            GoogleLoginResponseDto googleResponse = userService.googleLogin(requestDto);
+            String accessToken = jwtService.createAccessToken(googleResponse.getUserNo());
+            String refreshToken = jwtService.createRefreshToken();
+
+            jwtService.sendAccessAndRefreshToken(response, accessToken, refreshToken);
+            redisService.setValues(googleResponse.getName(), refreshToken);
+
+            response.setHeader("Authorization", "Bearer " + accessToken);
+            return ResponseEntity.ok(Response.success(googleResponse));
+        }catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
     @GetMapping("/userinfo")
     public ResponseEntity getUserInfo(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         log.info("정보 조회 요청 회원 번호 : " + userDetails.getUserNo());
