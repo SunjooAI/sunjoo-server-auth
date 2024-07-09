@@ -13,7 +13,9 @@ spring:
     password: sunjoo-user0628
   data:
     redis:
-      host: sunjoo-server-auth-redis-1
+
+      host: 13.124.194.48
+
       port: 6379
   profiles:
     include: jwt
@@ -48,4 +50,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://sunjoo-server-eureka-eureka-1:8761/eureka/
+      defaultZone: http://13.124.194.48:8761/eureka/

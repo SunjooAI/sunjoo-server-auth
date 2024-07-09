@@ -12,4 +12,5 @@ public interface UserService {
     public UserInfoResponseDto getUserInfo(long userNo);
     public NickNameResponseDto updateNickName(long userNo, String nickName);
     public void updateNewPassword(String id, String newPassword);
+    public GoogleLoginResponseDto googleLogin(GoogleLoginRequestDto googleRequest);
 }

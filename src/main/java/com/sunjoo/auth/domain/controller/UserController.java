@@ -10,11 +10,16 @@ import com.sunjoo.auth.global.Response;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.sql.SQLException;
 
@@ -52,6 +57,43 @@ public class UserController {
             response.setHeader("Authorization", "Bearer " + accessToken);
             return ResponseEntity.ok(Response.success(kakaoResponse));
         } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @PostMapping("/login/google")
+    public ResponseEntity googleLogin(@RequestBody GoogleLoginRequestDto requestDto, HttpServletResponse response) {
+        try {
+            GoogleLoginResponseDto googleResponse = userService.googleLogin(requestDto);
+            String accessToken = jwtService.createAccessToken(googleResponse.getUserNo());
+            String refreshToken = jwtService.createRefreshToken();
+
+            jwtService.sendAccessAndRefreshToken(response, accessToken, refreshToken);
+            redisService.setValues(googleResponse.getName(), refreshToken);
+
+            response.setHeader("Authorization", "Bearer " + accessToken);
+            return ResponseEntity.ok(Response.success(googleResponse));
+        }catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @PostMapping("/login/google-token")
+    public ResponseEntity googleLogin(@RequestBody GoogleTokenRequestDto requestDto) {
+        try {
+            log.info("구글 로그인 요청 : " + requestDto.getToken());
+            RestTemplate restTemplate = new RestTemplate();
+            String GOOGLE_USERINFO_REQUEST_URL="https://www.googleapis.com/oauth2/v1/userinfo";
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Authorization","Bearer "+ requestDto.getToken());
+
+            HttpEntity<MultiValueMap<String, String>> request = new HttpEntity(headers);
+            ResponseEntity<String> response= restTemplate.exchange(GOOGLE_USERINFO_REQUEST_URL, HttpMethod.GET,request,String.class);
+            return response;
+        }catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.internalServerError().build();
         }
