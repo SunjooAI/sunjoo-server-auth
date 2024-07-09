@@ -38,13 +38,13 @@ jobs:
 
       - name: Build and push Auth Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/auth .
-          docker push ${{ secrets.DOCKER_USERNAME }}/auth
+          docker build -t auth:latest .
+          docker push auth:latest
 
       - name: Build and push Redis Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis .
-          docker push ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
+          docker build -t redis:latest .
+          docker push redis:latest
       
 
       - name: SSH and Deploy
@@ -57,7 +57,11 @@ jobs:
           script: |
             cd /home/ubuntu/sunjoo-server-auth
             docker-compose down
-            git pull origin develop
-            docker pull ${{ secrets.DOCKER_USERNAME }}/auth:latest
-            docker pull ${{ secrets.DOCKER_USERNAME }}/sunjoo:redis
-            docker-compose up -d --build
+            docker pull auth:latest
+            docker pull redis:latest
+            docker compose build
+            docker compose up -d
+            docker network connect eureka-network sunjoo-server-auth_spring_1
+            docker network connect eureka-network sunjoo-server-auth_redis_1
+            docker restart sunjoo-server-auth_spring_1
+            docker restart sunjoo-server-auth_redis_1

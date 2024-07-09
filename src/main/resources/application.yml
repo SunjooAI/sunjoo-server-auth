@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://sunjoo-user.clau8wyu484y.ap-northeast-2.rds.amazonaws.com:3306/sunjoo?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
-    password: sunjoo-user0628
+    password: ${DB_PASSWORD}
   data:
     redis:
       host: 13.124.194.48
